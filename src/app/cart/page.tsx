@@ -11,6 +11,8 @@ const CartPage = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
+  console.log(totalPrice);
+
   useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);

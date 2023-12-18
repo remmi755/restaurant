@@ -15,6 +15,7 @@ const Navbar = () => {
         <Link href="/">Homepage</Link>
         <Link href="/menu">Menu</Link>
         <Link href="/">Contact</Link>
+        <AddButton />
       </div>
       {/* LOGO */}
       <div className="text-xl md:font-bold flex-1 md:text-center">
@@ -32,7 +33,6 @@ const Navbar = () => {
         </div>
         <UserLinks />
         <CartIcon />
-        <AddButton />
       </div>
     </div>
   );

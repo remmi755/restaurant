@@ -10,7 +10,7 @@ const AddButton = () => {
   return (
     session?.user.isAdmin && (
       <button>
-        <Link href="/add">Add New Product</Link>
+        <Link href="/add">ADD PRODUCT</Link>
       </button>
     )
   );

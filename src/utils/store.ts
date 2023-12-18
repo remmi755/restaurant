@@ -25,21 +25,21 @@ export const useCartStore = create(
             product.id === productInState.id
               ? {
                   ...item,
-                  quantity: item.quantity + product.quantity,
-                  price: item.price + product.price,
+                  quantity: +item.quantity + +product.quantity,
+                  price: +item.price + +product.price,
                 }
               : item
           );
           set((state) => ({
             products: updateProducts,
-            totalItems: state.totalItems + item.quantity,
-            totalPrice: state.totalPrice + item.price,
+            totalItems: +state.totalItems + +item.quantity,
+            totalPrice: +state.totalPrice + +item.price,
           }));
         } else {
           set((state) => ({
             products: [...state.products, item],
-            totalItems: state.totalItems + item.quantity,
-            totalPrice: state.totalPrice + item.price,
+            totalItems: +state.totalItems + +item.quantity,
+            totalPrice: +state.totalPrice + +item.price,
           }));
         }
       },
