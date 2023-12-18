@@ -1,20 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/utils/connect";
 
-// CHANGE THE STATUS OF AN ORDER
 export const PUT = async (
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: { intentId: string } }
 ) => {
-  const { id } = params;
+  const { intentId } = params;
+
+  console.log("intentId :", intentId);
 
   try {
-    const body = await req.json();
-
-    await prisma?.order.update({
+    await prisma.order.update({
       where: {
-        id: id,
+        intent_id: intentId,
       },
-      data: { status: body },
+      data: { status: "Being prepared!" },
     });
     return new NextResponse(
       JSON.stringify({ message: "Order has been updated!" }),

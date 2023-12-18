@@ -18,7 +18,6 @@ const LoginPage = () => {
     router.push("/");
   }
 
-  console.log("status: " + status);
   return (
     <div className="h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] p-4 flex items-center justify-center">
       {/*BOX*/}

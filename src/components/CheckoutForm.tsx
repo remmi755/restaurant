@@ -6,7 +6,7 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AddressForm from "@/components/AddressForm";
 
 const CheckoutForm = () => {
@@ -47,7 +47,7 @@ const CheckoutForm = () => {
     });
   }, [stripe]);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
@@ -81,7 +81,12 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form
+      id="payment-form"
+      onSubmit={handleSubmit}
+      className="min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-15rem)] p-4 lg:px-20 xl:px-40 flex flex-col gap-8"
+    >
+      <LinkAuthenticationElement id="link-authentication-element" />
       <PaymentElement
         id="payment-element"
         options={{
@@ -89,7 +94,11 @@ const CheckoutForm = () => {
         }}
       />
       <AddressForm />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
+      <button
+        disabled={isLoading || !stripe || !elements}
+        id="submit"
+        className="bg-red-500 text-white p-4 rounded-md w-28"
+      >
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
@@ -97,6 +106,23 @@ const CheckoutForm = () => {
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
+
+    // <form id="payment-form" onSubmit={handleSubmit}>
+    //   <PaymentElement
+    //     id="payment-element"
+    //     options={{
+    //       layout: "tabs",
+    //     }}
+    //   />
+    //   <AddressForm />
+    //   <button disabled={isLoading || !stripe || !elements} id="submit">
+    //     <span id="button-text">
+    //       {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+    //     </span>
+    //   </button>
+    //   {/* Show any error or success messages */}
+    //   {message && <div id="payment-message">{message}</div>}
+    // </form>
   );
 };
 

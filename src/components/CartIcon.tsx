@@ -7,7 +7,7 @@ import { useCartStore } from "@/utils/store";
 
 const CartIcon = () => {
   const { totalItems } = useCartStore();
-  console.log("T :", totalItems);
+
   useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);
