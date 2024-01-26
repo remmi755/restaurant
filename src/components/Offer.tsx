@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import CountDown from "./CountDown";
+import Link from "next/link";
 
 const Offer = () => {
   return (
@@ -16,7 +17,7 @@ const Offer = () => {
         </p>
         <CountDown />
         <button className="bg-red-500 text-white rounded-md py-3 px-6">
-          Order Now
+          <Link href="/menu">Order Now</Link>
         </button>
       </div>
       {/*IMAGE CONTAINER*/}

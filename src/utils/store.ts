@@ -17,35 +17,39 @@ export const useCartStore = create(
       addToCart(item) {
         const products = get().products;
         const productInState = products.find(
-          (product) => product.id === item.id
+          (product) =>
+            product.id === item.id && product.optionTitle === item.optionTitle
         );
-
+        console.log("productInState :", productInState);
         if (productInState) {
           const updateProducts = products.map((product) =>
-            product.id === productInState.id
+            product.id === productInState.id &&
+            product.optionTitle === productInState.optionTitle
               ? {
-                  ...item,
-                  quantity: +item.quantity + +product.quantity,
-                  price: +item.price + +product.price,
+                  ...product,
+                  quantity: item.quantity + product.quantity,
+                  price: item.price + product.price,
                 }
-              : item
+              : product
           );
           set((state) => ({
             products: updateProducts,
-            totalItems: +state.totalItems + +item.quantity,
-            totalPrice: +state.totalPrice + +item.price,
+            totalItems: state.totalItems + item.quantity,
+            totalPrice: state.totalPrice + item.price,
           }));
+          console.log("products :", products);
+          console.log("updateProducts :", updateProducts);
         } else {
           set((state) => ({
             products: [...state.products, item],
-            totalItems: +state.totalItems + +item.quantity,
-            totalPrice: +state.totalPrice + +item.price,
+            totalItems: state.totalItems + item.quantity,
+            totalPrice: state.totalPrice + item.price,
           }));
         }
       },
       removeFromCart(item) {
         set((state) => ({
-          products: state.products.filter((product) => product.id !== item.id),
+          products: state.products.filter((product) => product !== item),
           totalItems: state.totalItems - item.quantity,
           totalPrice: state.totalPrice - item.price,
         }));

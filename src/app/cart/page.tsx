@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useCartStore } from "@/utils/store";
 import { useSession } from "next-auth/react";
@@ -10,12 +10,21 @@ const CartPage = () => {
   const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
   const { data: session } = useSession();
   const router = useRouter();
+  const [updatedProduct, setUpdatedProduct] = useState(products);
 
-  console.log(totalPrice);
+  console.log("productsCartPage :", products);
 
   useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);
+
+  const updateProducts = () => {
+    setUpdatedProduct(products);
+  };
+
+  useEffect(() => {
+    updateProducts();
+  }, [products, totalPrice]);
 
   const handleCheckout = async () => {
     if (!session) {
@@ -47,7 +56,7 @@ const CartPage = () => {
         {/*SINGLE ITEM */}
         {products.map((item) => (
           <div
-            key={item.id}
+            key={`${item.id}_${item.optionTitle}`}
             className="flex items-center justify-between mb-4 "
           >
             {item.img && (

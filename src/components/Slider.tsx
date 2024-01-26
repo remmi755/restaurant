@@ -40,7 +40,6 @@ const Slider = () => {
           {data[currentSlide].title}
         </h1>
         <button className="bg-red-500 text-white py-4 px-8">
-          {" "}
           <Link href="/menu">Order Now</Link>
         </button>
       </div>
