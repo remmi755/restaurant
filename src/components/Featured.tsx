@@ -24,12 +24,12 @@ const getData = async () => {
 //
 //   useEffect(() => {
 //     async function fetchPosts() {
-//       const postData = await getData();
+//       const postData = await getDataCategory();
 //       setData(postData);
 //     }
 //     fetchPosts();
 //   }, []);
-//   // const featuredProducts: ProductType[] = getData();
+//   // const featuredProducts: ProductType[] = getDataCategory();
 //
 //   return (
 //     <div className="w-screen overflow-x-scroll text-red-500">

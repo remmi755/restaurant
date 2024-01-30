@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ProductType } from "@/types/types";
-import { getData } from "@/utils/getData";
+import { getDataCategory } from "@/utils/getDataCategory";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const CategoryPage = async ({ params }: Props) => {
-  const products: ProductType[] = await getData(params.category);
+  const products: ProductType[] = await getDataCategory(params.category);
   return (
     <div className="flex flex-wrap text-red-500">
       {products.map((item) => (

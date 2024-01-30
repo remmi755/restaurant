@@ -1,23 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import { MenuType } from "@/types/types";
+import { getDataCategories } from "@/utils/getDataCategories";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
-const getData = async () => {
-  const apiUrl = "http://localhost:3000" || process.env.API_URL;
-  const res = await fetch(`${apiUrl}/api/categories`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed!");
-  }
-  return res.json();
-};
 const MenuPage = async () => {
-  const menu: MenuType = await getData();
+  const menu: MenuType = await getDataCategories();
 
   return (
     <div className="p-4 lg:px-20 xl:px-40 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col md:flex-row items-center">

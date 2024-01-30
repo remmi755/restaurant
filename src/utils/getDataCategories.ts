@@ -1,6 +1,6 @@
-export const getData = async (category: string) => {
+export const getDataCategories = async () => {
   const apiUrl = "http://localhost:3000" || process.env.API_URL;
-  const res = await fetch(`${apiUrl}/api/products?cat=${category}`, {
+  const res = await fetch(`${apiUrl}/api/categories`, {
     cache: "no-store",
   });
 
