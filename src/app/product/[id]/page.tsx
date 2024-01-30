@@ -4,6 +4,9 @@ import Price from "@/components/Price";
 import { ProductType } from "@/types/types";
 import DeleteButton from "@/components/DeleteButton";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const getData = async (id: string) => {
   const apiUrl = "http://localhost:3000" || process.env.API_URL;
   const res = await fetch(`${apiUrl}/api/products/${id}`, {

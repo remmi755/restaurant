@@ -4,6 +4,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const SuccessPage = () => {
   const searchParams = useSearchParams();
   const payment_intent = searchParams.get("payment_intent");

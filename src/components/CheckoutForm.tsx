@@ -9,6 +9,9 @@ import {
 import { useEffect, useState } from "react";
 import AddressForm from "@/components/AddressForm";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();

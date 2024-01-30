@@ -6,6 +6,9 @@ import { useCartStore } from "@/utils/store";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const CartPage = () => {
   const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
   const { data: session } = useSession();
