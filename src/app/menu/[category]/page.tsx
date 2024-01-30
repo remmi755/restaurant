@@ -2,21 +2,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ProductType } from "@/types/types";
+import { getData } from "@/utils/getData";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
-
-const getData = async (category: string) => {
-  const apiUrl = "http://localhost:3000" || process.env.API_URL;
-  const res = await fetch(`${apiUrl}/api/products?cat=${category}`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed!");
-  }
-  return res.json();
-};
 
 type Props = {
   params: { category: string };
