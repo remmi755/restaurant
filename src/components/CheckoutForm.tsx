@@ -48,6 +48,7 @@ const CheckoutForm = () => {
   }, [stripe]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const apiUrl = "http://localhost:3000" || process.env.API_URL;
     e.preventDefault();
 
     if (!stripe || !elements) {
@@ -62,7 +63,7 @@ const CheckoutForm = () => {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/success",
+        return_url: `${apiUrl}/success`,
       },
     });
 

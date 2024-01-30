@@ -84,11 +84,12 @@ const AddPage = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const apiUrl = "http://localhost:3000" || process.env.API_URL;
     e.preventDefault();
 
     try {
       const url = await upload();
-      const res = await fetch("http://localhost:3000/api/products", {
+      const res = await fetch(`${apiUrl}/api/products`, {
         method: "POST",
         body: JSON.stringify({
           img: url,
@@ -313,7 +314,7 @@ export default AddPage;
 //
 //       console.log("url :", url);
 //
-//       const res = await fetch("http://localhost:3000/api/products", {
+//       const res = await fetch("http://127.0.0.1:3000/api/products", {
 //         method: "POST",
 //         body: JSON.stringify({
 //           img: url,
@@ -624,7 +625,7 @@ export default AddPage;
 //
 //     try {
 //       const url = await upload();
-//       const res = await fetch("http://localhost:3000/api/products", {
+//       const res = await fetch("http://127.0.0.1:3000/api/products", {
 //         method: "POST",
 //         body: JSON.stringify({
 //           img: url,
