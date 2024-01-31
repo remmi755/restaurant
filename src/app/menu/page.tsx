@@ -3,6 +3,9 @@ import Link from "next/link";
 import { MenuType } from "@/types/types";
 import { getDataCategories } from "@/utils/getDataCategories";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const MenuPage = async () => {
   const menu: MenuType = await getDataCategories();
 

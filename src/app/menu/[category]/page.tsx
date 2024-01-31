@@ -4,6 +4,9 @@ import Image from "next/image";
 import { ProductType } from "@/types/types";
 import { getDataCategory } from "@/utils/getDataCategory";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 type Props = {
   params: { category: string };
 };
