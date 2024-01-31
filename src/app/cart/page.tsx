@@ -32,11 +32,11 @@ const CartPage = () => {
   const handleCheckout = async () => {
     const apiUrl = "http://localhost:3000" || process.env.API_URL;
     if (!session) {
-      router.push("/");
+      router.push(`/`);
     } else {
       try {
         const res = await fetch(`${apiUrl}/api/orders`, {
-          // cache: "no-store",
+          cache: "no-store",
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

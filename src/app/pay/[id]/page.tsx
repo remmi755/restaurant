@@ -23,7 +23,8 @@ const PayPage = ({ params }: { params: { id: string } }) => {
       console.log(apiUrl);
       console.log(api);
       try {
-        const res = await fetch(`http://${apiUrl}/api/create-intent/${id}`, {
+        const res = await fetch(`${apiUrl}/api/create-intent/${id}`, {
+          cache: "no-store",
           method: "POST",
         });
         const data = await res.json();
