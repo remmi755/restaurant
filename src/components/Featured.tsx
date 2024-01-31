@@ -2,21 +2,10 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ProductType } from "@/types/types";
+import { getDataProducts } from "@/utils/getDataProducts";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
-
-const getData = async () => {
-  const apiUrl = "http://localhost:3000" || process.env.API_URL;
-  const res = await fetch(`${apiUrl}/api/products`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed!");
-  }
-  return res.json();
-};
 
 // const Featured = () => {
 //   // "use client";
@@ -67,7 +56,7 @@ const getData = async () => {
 // };
 
 const Featured = async () => {
-  const featuredProducts: ProductType[] = await getData();
+  const featuredProducts: ProductType[] = await getDataProducts();
 
   return (
     <div className="w-screen overflow-x-scroll text-red-500">
