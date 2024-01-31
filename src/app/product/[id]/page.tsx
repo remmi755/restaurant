@@ -3,24 +3,13 @@ import Image from "next/image";
 import Price from "@/components/Price";
 import { ProductType } from "@/types/types";
 import DeleteButton from "@/components/DeleteButton";
+import { getDataSingleProduct } from "@/utils/getDataSingleProduct";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
-const getData = async (id: string) => {
-  const apiUrl = "http://localhost:3000" || process.env.API_URL;
-  const res = await fetch(`${apiUrl}/api/products/${id}`, {
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed!");
-  }
-  return res.json();
-};
-
 const SingleProductPage = async ({ params }: { params: { id: string } }) => {
-  const singleProduct: ProductType = await getData(params.id);
+  const singleProduct: ProductType = await getDataSingleProduct(params.id);
 
   return (
     <div className="p-4 lg:px-20 xl:px-40 h-screen flex flex-col justify-around text-red-500 md:flex-row md:gap-8 md:items-center relative">
