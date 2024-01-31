@@ -12,8 +12,6 @@ const CartPage = () => {
   const router = useRouter();
   const [updatedProduct, setUpdatedProduct] = useState(products);
 
-  console.log("productsCartPage :", products);
-
   useEffect(() => {
     useCartStore.persist.rehydrate();
   }, []);
