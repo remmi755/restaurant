@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 
-const endingDate = new Date("2024-01-01");
+const endingDate = new Date("2024-03-08");
 
 const CountDown = () => {
   const [isClient, setIsClient] = useState(false);
