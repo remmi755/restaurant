@@ -72,6 +72,7 @@ const AddPage = () => {
     const res = await fetch(
       "https://api.cloudinary.com/v1_1/remmi/image/upload",
       {
+        cache: "no-store",
         method: "POST",
         // headers: { "Content-Type": "multipart/form-data" },
         body: data,
