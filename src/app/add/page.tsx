@@ -74,7 +74,6 @@ const AddPage = () => {
       {
         cache: "no-store",
         method: "POST",
-        // headers: { "Content-Type": "multipart/form-data" },
         body: data,
       }
     );

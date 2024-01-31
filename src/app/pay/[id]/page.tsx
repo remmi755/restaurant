@@ -17,8 +17,6 @@ const PayPage = ({ params }: { params: { id: string } }) => {
     const makeRequest = async () => {
       const apiUrl = "http://localhost:3000" || process.env.API_URL;
       const api = process.env.NEXTAUTH_SECRET;
-      console.log(apiUrl);
-      console.log(api);
       try {
         const res = await fetch(`${apiUrl}/api/create-intent/${id}`, {
           cache: "no-store",

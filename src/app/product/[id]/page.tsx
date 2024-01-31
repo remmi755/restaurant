@@ -5,6 +5,9 @@ import { ProductType } from "@/types/types";
 import DeleteButton from "@/components/DeleteButton";
 import { getDataSingleProduct } from "@/utils/getDataSingleProduct";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const SingleProductPage = async ({ params }: { params: { id: string } }) => {
   const singleProduct: ProductType = await getDataSingleProduct(params.id);
 
