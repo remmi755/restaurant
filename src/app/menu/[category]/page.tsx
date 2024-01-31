@@ -4,15 +4,13 @@ import Image from "next/image";
 import { ProductType } from "@/types/types";
 import { getDataCategory } from "@/utils/getDataCategory";
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
-
 type Props = {
   params: { category: string };
 };
 
 const CategoryPage = async ({ params }: Props) => {
   const products: ProductType[] = await getDataCategory(params.category);
+
   return (
     <div className="flex flex-wrap text-red-500">
       {products.map((item) => (

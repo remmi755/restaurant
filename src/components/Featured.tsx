@@ -1,11 +1,7 @@
-// "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ProductType } from "@/types/types";
 import { getDataProducts } from "@/utils/getDataProducts";
-
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
 
 // const Featured = () => {
 //   // "use client";

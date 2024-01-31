@@ -8,9 +8,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { toast } from "react-toastify";
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
-
 const OrdersPage = () => {
   const { data: session, status } = useSession();
 
